@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    android:orientation="vertical"
+    tools:context=".DocumentsGutsChecklist">
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/creationwindow"
+            android:text="Save"
+            android:textColor="#fff"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:id="@+id/documentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Document name"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textSize="24sp" />
+
+        <ListView
+            android:id="@+id/taskListView"
+            android:layout_width="411dp"
+            android:layout_height="453dp"
+
+            />
+
+        <Button
+            android:id="@+id/addTaskButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/creationwindow"
+            android:text="+"
+            android:textColor="#fff" />
+
+
+
+</LinearLayout>
+
+
+
+
