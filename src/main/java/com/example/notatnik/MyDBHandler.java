@@ -36,7 +36,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DOCUMENTS);
         onCreate(db);
     }
-
+    //asd
     public void addDocument(Document document){
         ContentValues values = new ContentValues();
         values.put(COLUMN_DOCUMENTNAME, document.getName());
