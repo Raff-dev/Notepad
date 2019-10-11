@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 -add color setting
 -type images in list view
--create note text view
 -create database
 -swipe to delete
 
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         documentList = new ArrayList<>();
-        documentList.add(new Document(1, "Your very first note", "Note", 0));
+        documentList.add(new Document(1, "Your very first note", "Note"));
 
         documentAdapter = new DocumentAdapter(this, documentList);
         myListView = findViewById(R.id.myListView);
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //PRIVATE
-    //OPENERS
     private void openCreationActivity() {
         Intent i = new Intent(
                 getApplicationContext(),
@@ -115,15 +113,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //CREATORS
-    public static void createNewDocument(int id, String name, String type, int itemsCount) {
+    public static void createNewDocument(int id, String name, String type) {
 
-        documentList.add(new Document(id, name, type, itemsCount));
+        documentList.add(new Document(id, name, type));
     }
 
     //GETTERS
     public static ArrayList<Document> GetDocumentList() {
         return documentList;
     }
-
 
 }

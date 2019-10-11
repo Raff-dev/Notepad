@@ -76,8 +76,8 @@ public class CreationWindow extends AppCompatActivity {
             createNewDocument(
                     GetDocumentList().size() + 1,
                     newDocumentNameEditText.getText().toString(),
-                    getDocumentType(),
-                    GetDocumentList().size());
+                    getDocumentType()
+            );
 
             finish();
         } else {

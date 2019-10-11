@@ -28,7 +28,8 @@
         android:textSize="24sp" />
     <EditText
         android:layout_width="400dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#fff"/>
 
 
 

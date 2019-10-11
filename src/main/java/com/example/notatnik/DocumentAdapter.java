@@ -41,11 +41,9 @@ public class DocumentAdapter extends BaseAdapter {
         View v = mInflater.inflate(R.layout.listview_detail_layout, null);
         TextView name = (TextView) v.findViewById(R.id.nameTextView);
         TextView type = (TextView) v.findViewById(R.id.typeTextView);
-        TextView itemsCount = (TextView) v.findViewById(R.id.itemsCountTextView);
 
         name.setText(String.format("%s", mDocumentList.get(position).getName()));
         type.setText(String.format("%s", mDocumentList.get(position).getType()));
-        itemsCount.setText(String.valueOf(mDocumentList.get(position).getItemsCount()));
 
         v.setTag(mDocumentList.get(position).getId());
 

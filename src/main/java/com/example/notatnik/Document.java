@@ -4,17 +4,15 @@ public class Document {
     private int id;
     private String name;
     private String type;
-    private int itemsCount;
 
     //TO DO
     //ADD COLOR SETTING
 
 
-    public Document(int id, String name, String type, int itemsCount) {
+    Document(int id, String name, String type) {
         this.id = id;
         this.name = name;
         this.type = type;
-        this.itemsCount = itemsCount;
     }
 
 
@@ -41,14 +39,6 @@ public class Document {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public int getItemsCount() {
-        return itemsCount;
-    }
-
-    public void setItemsCount(int itemsCount) {
-        this.itemsCount = itemsCount;
     }
 }
 
