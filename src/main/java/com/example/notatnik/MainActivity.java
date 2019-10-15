@@ -2,7 +2,9 @@ package com.example.notatnik;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -25,23 +27,33 @@ import java.util.ArrayList;
 -create database
 -swipe to delete
 
+
+
+
+MAKE A REFRESH FUNCTION THAT PUTS ITEMS INTO LISTVIEW
+INVOKE REFRESH WHILE ADDING NEW ELEMENT TO LIST
 */
 
 public class MainActivity extends AppCompatActivity {
 
     private static ArrayList<Document> documentList;
-    private DocumentAdapter documentAdapter;
-
+    private static DocumentAdapter documentAdapter;
+    private static Context context;
     ListView myListView;
-    Button createButton;
+    Button createButton,deleteAllButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MainActivity.context=getApplicationContext();
+        final MyDBHandler dbHandler = new MyDBHandler(this,null,null,1);
+        Document exampleDocument = new Document("Your very first note", "Note");
 
         documentList = new ArrayList<>();
-        documentList.add(new Document(1, "Your very first note", "Note"));
+
+
 
         documentAdapter = new DocumentAdapter(this, documentList);
         myListView = findViewById(R.id.myListView);
@@ -53,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         createButton = findViewById(R.id.createButton);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +73,35 @@ public class MainActivity extends AppCompatActivity {
                 openCreationActivity();
             }
         });
+        deleteAllButton = findViewById(R.id.deleteAllButton);
+        deleteAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbHandler.deleteAll();
 
+                int i = documentList.size();
+                while(i!=0){
+                    documentList.remove(1);
+                    i--;
+                }
+                documentAdapter.notifyDataSetChanged();
+            }
+        });
+
+        Cursor data = dbHandler.getListContents();
+        if(data.moveToFirst()){
+            while(!data.isAfterLast()){
+                String name = data.getString(data.getColumnIndex("documentname"));
+                String type = data.getString(data.getColumnIndex("documenttype"));
+                Document document = new Document(name,type);
+                documentList.add(document);
+                documentAdapter.notifyDataSetChanged();
+                data.moveToNext();
+            }
+        }
     }
+
+
 
     //PRIVATE
     private void openCreationActivity() {
@@ -94,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //PUBLIC
-    public static void displayWindow(WindowManager windowManager, Window window, double widthModifier, double heightModifier, EditText editText) {
+    public static void displayWindow(
+            WindowManager windowManager, Window window, double widthModifier, double heightModifier, EditText editText) {
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
 
@@ -112,15 +153,20 @@ public class MainActivity extends AppCompatActivity {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
-    //CREATORS
-    public static void createNewDocument(int id, String name, String type) {
+    public static void displayList(){
 
-        documentList.add(new Document(id, name, type));
+
+
     }
-
     //GETTERS
     public static ArrayList<Document> GetDocumentList() {
         return documentList;
     }
+    public static DocumentAdapter GetDocumentAdapter(){
+        return documentAdapter;
+    }
 
+    public static Context getAppContext(){
+        return MainActivity.context;
+    }
 }

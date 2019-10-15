@@ -1,20 +1,26 @@
 package com.example.notatnik;
 
+import android.widget.Button;
+
 public class Document {
     private int id;
     private String name;
     private String type;
-
     //TO DO
     //ADD COLOR SETTING
+    public Document() {
+    }
 
-
-    Document(int id, String name, String type) {
-        this.id = id;
+    public Document(String name, String type) {
         this.name = name;
         this.type = type;
     }
 
+    public Document(int id, String name, String type) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
 
 
     public int getId() {
@@ -30,6 +36,8 @@ public class Document {
     }
 
     public void setName(String name) {
+
+
         this.name = name;
     }
 

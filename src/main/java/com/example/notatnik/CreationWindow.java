@@ -30,7 +30,7 @@ public class CreationWindow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creation_window);
 
-        MainActivity.displayWindow(getWindowManager(),getWindow(),0.8,0.35,focus);
+        MainActivity.displayWindow(getWindowManager(),getWindow(),0.8,0.5,focus);
 
         lRadio = findViewById(R.id.nRadio);
         lRadio.setChecked(true);
@@ -61,7 +61,19 @@ public class CreationWindow extends AppCompatActivity {
             }
         });
     }
+    public void createNewDocument(int id, String name, String type) {
+        MyDBHandler dbHandler= new MyDBHandler(this, null,null, 1);
+        Document document = new Document(id,name, type);
 
+        boolean insert = dbHandler.addDocument(document);
+        if (insert){
+            Toast.makeText(getApplicationContext(),"Added Succesfully",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getApplicationContext(),"Something went wrong! :( ",Toast.LENGTH_SHORT);
+        }
+
+        MainActivity.GetDocumentList().add(document);
+    }
 
 
 
@@ -74,7 +86,7 @@ public class CreationWindow extends AppCompatActivity {
 
         if (!newDocumentNameEditText.getText().toString().isEmpty()) {
             createNewDocument(
-                    GetDocumentList().size() + 1,
+                    GetDocumentList().size(),
                     newDocumentNameEditText.getText().toString(),
                     getDocumentType()
             );
@@ -93,7 +105,7 @@ public class CreationWindow extends AppCompatActivity {
     private String getDocumentType() {
         String type;
 
-        radioGroup = findViewById(R.id.radioGroup);
+        radioGroup = findViewById(R.id.radioGroupType);
         switch (radioGroup.getCheckedRadioButtonId()) {
             case R.id.nRadio:
                 type = "Note";

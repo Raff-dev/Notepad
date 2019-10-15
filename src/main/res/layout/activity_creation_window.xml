@@ -11,94 +11,192 @@
     android:orientation="vertical"
     tools:context=".CreationWindow">
 
-
-    <Button
-        android:id="@+id/closeButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/xbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <EditText
-        android:id="@+id/newDocumentName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-
-        android:layout_centerInParent="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="161dp"
-        android:hint="New document's name"
-        android:textColor="#fff"
-        android:textColorHint="#BBffffff"
-        android:textSize="18dp" />
-
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp"
-        android:background="@drawable/namebg"
-        android:text="Create"
-        android:textAllCaps="false"
-        android:textColor="#fff" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_marginStart="-1dp"
+        android:layout_marginBottom="342dp">
 
-        <RadioButton
-            android:id="@+id/nRadio"
-            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+
+        <EditText
+            android:id="@+id/newDocumentName"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:buttonTint="#BBFFFFFF"
-            android:text="Note"
-            android:textColor="#bbffffff"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+
+            android:layout_centerInParent="true"
+            android:hint="New document's name"
+            android:textColor="#fff"
+            android:textColorHint="#BBffffff"
+            android:textSize="18dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newDocumentName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/nRadio"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:buttonTint="#BBFFFFFF"
+                android:text="Note"
+                android:textColor="#bbffffff"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <RadioButton
+                android:id="@+id/cRadio"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="#BBFFFFFF"
+                android:text="Checkbox"
+                android:textColor="#bbffffff"
+                app:layout_constraintLeft_toRightOf="@id/nRadio" />
+
+            <RadioButton
+                android:id="@+id/gRadio"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:buttonTint="#BBFFFFFF"
+                android:text="Graphic"
+                android:textColor="#bbffffff"
+                app:layout_constraintLeft_toRightOf="@id/cRadio" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newDocumentName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="-4dp"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginTop="47dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/orangeRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/color_dot_orange" />
+
+            <RadioButton
+                android:id="@+id/greenRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/color_dot_green" />
+
+            <RadioButton
+                android:id="@+id/lightBlueRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/greenRadio"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/greenRadio"
+                android:layout_toRightOf="@+id/greenRadio"
+                android:background="@drawable/color_dot_lightblue" />
+
+            <RadioButton
+                android:id="@+id/darkBlueRadio"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/lightBlueRadio"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/lightBlueRadio"
+                android:layout_toRightOf="@+id/lightBlueRadio"
+                android:background="@drawable/color_dot_darkblue"
+                android:textColor="#00FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/purpleRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/darkBlueRadio"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/darkBlueRadio"
+                android:layout_toRightOf="@+id/darkBlueRadio"
+                android:background="@drawable/color_dot_purple" />
+
+            <RadioButton
+                android:id="@+id/redRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/purpleRadio"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/purpleRadio"
+                android:layout_toRightOf="@+id/purpleRadio"
+                android:background="@drawable/color_dot_red" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroupColor"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="163dp"
+            android:layout_marginLeft="163dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginRight="160dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/namebg"
+            android:text="Create"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:layout_above="@+id/newDocumentName"
+            android:layout_marginStart="75dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginBottom="-30dp"
+            android:layout_toEndOf="@+id/newDocumentName"
+            android:layout_toRightOf="@+id/newDocumentName"
+            android:background="@drawable/xbutton"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
-
-        <RadioButton
-            android:id="@+id/cRadio"
-            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="10dp"
-            android:buttonTint="#BBFFFFFF"
-            android:text="Checkbox"
-            android:textColor="#bbffffff"
-            app:layout_constraintLeft_toRightOf="@id/nRadio" />
-
-        <RadioButton
-            android:id="@+id/gRadio"
-            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="10dp"
-            android:buttonTint="#BBFFFFFF"
-            android:text="Graphic"
-            android:textColor="#bbffffff"
-            app:layout_constraintLeft_toRightOf="@id/cRadio" />
-    </RadioGroup>
 </RelativeLayout>

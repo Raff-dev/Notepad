@@ -8,4 +8,10 @@
     <color name="lightblue">#85B6F4</color>
     <color name="darklightblue">#66A4F1</color>
     <color name="dark">#414555</color>
+    <color name="newOrange">#FFBC75</color>
+    <color name="newGreen">#AFFF79</color>
+    <color name="newLightBlue">#53B2D0</color>
+    <color name="newDarkBlue">#4F6EEE</color>
+    <color name="newPurple">#A680FF</color>
+    <color name="newRed">#FF787B</color>
 </resources>
