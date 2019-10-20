@@ -6,6 +6,8 @@ public class Document {
     private int id;
     private String name;
     private String type;
+    private String color;
+
     //TO DO
     //ADD COLOR SETTING
     public Document() {
@@ -20,6 +22,13 @@ public class Document {
         this.id = id;
         this.name = name;
         this.type = type;
+    }
+
+    public Document(int id, String name, String type, String color) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.color = color;
     }
 
 
@@ -47,6 +56,14 @@ public class Document {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="80dp"
     android:orientation="horizontal"
     android:background="@drawable/creationwindow">
 
     <EditText
         android:id="@+id/newTaskName"
-        android:layout_width="220dp"
+        android:layout_width="180dp"
         android:layout_height="45dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
@@ -19,7 +19,7 @@
         android:id="@+id/applyButton"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="45dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/creationwindow"
         android:text="Add"

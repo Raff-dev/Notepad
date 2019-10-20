@@ -45,7 +45,7 @@ public class TaskAdapter extends BaseAdapter {
         CheckBox taskCheck = (CheckBox) v.findViewById(R.id.taskCheckbox);
 
         taskName.setText(String.format("%s", mTaskList.get(position).getTaskText()));
-        taskCheck.setChecked(false);
+        taskCheck.setChecked(mTaskList.get(position).isChecked());
 
         v.setTag(mTaskList.get(position).getId());
         return v;

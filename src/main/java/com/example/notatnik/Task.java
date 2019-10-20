@@ -1,14 +1,25 @@
 package com.example.notatnik;
 
 public class Task {
+    private int documentId;
     private int id;
     private String taskText;
     private boolean isChecked;
 
-    public Task(int id, String taskText, boolean isChecked) {
+
+
+    public Task(int documentId, int id, String taskText, boolean isChecked) {
+        this.documentId=documentId;
         this.id = id;
         this.taskText = taskText;
         this.isChecked = isChecked;
+    }
+    public int getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(int documentId) {
+        this.documentId = documentId;
     }
 
     public int getId() {
