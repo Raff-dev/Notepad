@@ -1,5 +1,5 @@
 # Notepad
-A simple notepad app, in which you can add notes/tasks that are stored in SQLite database.  
+This is a simple notepad app, in which you can add notes/tasks, that are stored in SQL database.  
 Its just me trying to learn some programing :D
 
 ### You can create a note...
