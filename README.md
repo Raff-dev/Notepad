@@ -1,5 +1,6 @@
 # Notepad
-Its me trying to learn Java and Andorid Studio
+A simple notepad app, in which you can add notes/tasks that are stored in SQLite database.
+Its just me trying to learn some programing :D
 
 ### You can create a note or a checklist. Delete a task by swiping one out.
 <a href="https://imgflip.com/gif/3elwxe"><img src="https://i.imgflip.com/3elwxe.gif"/></a>
