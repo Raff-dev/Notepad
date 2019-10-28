@@ -3,17 +3,17 @@ package com.example.notatnik;
 public class Task {
     private int documentId;
     private int id;
-    private String taskText;
+    private String taskName;
     private boolean isChecked;
 
 
-
-    public Task(int documentId, int id, String taskText, boolean isChecked) {
-        this.documentId=documentId;
+    public Task(int documentId, int id, String taskName, boolean isChecked) {
+        this.documentId = documentId;
         this.id = id;
-        this.taskText = taskText;
+        this.taskName = taskName;
         this.isChecked = isChecked;
     }
+
     public int getDocumentId() {
         return documentId;
     }
@@ -30,12 +30,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getTaskText() {
-        return taskText;
+    public String getTaskName() {
+        return taskName;
     }
 
     public void setTaskText(String taskText) {
-        this.taskText = taskText;
+        this.taskName = taskText;
     }
 
     public boolean isChecked() {

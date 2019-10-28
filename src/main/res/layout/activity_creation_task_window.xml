@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:orientation="horizontal"
-    android:background="@drawable/creationwindow">
+    android:background="@drawable/creationwindowbar"
+    android:orientation="horizontal">
 
     <EditText
         android:id="@+id/newTaskName"
-        android:layout_width="180dp"
+        android:layout_width="240dp"
         android:layout_height="45dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
+        android:background="@null"
         android:hint="New task name"
+        android:textSize="20sp"
+        android:maxLength="16"
+        android:singleLine="true"
         android:textColor="#fff"
-        android:textColorHint="#fff" />
+        android:textColorHint="#fff"
+        android:textColorLink="#fff" />
 
     <Button
         android:id="@+id/applyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/creationwindow"
-        android:text="Add"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/newTaskName"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/newTaskName"
+        android:layout_toRightOf="@+id/newTaskName"
+        android:background="@drawable/ic_addtask"
         android:textColor="#fff" />
-</LinearLayout>
+</RelativeLayout>

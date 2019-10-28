@@ -12,7 +12,12 @@ public class Document {
     //ADD COLOR SETTING
     public Document() {
     }
-
+    public Document(Document document){
+        this.id=document.getId();
+        this.name=document.getName();
+        this.type=document.getType();
+        this.color=document.getColor();
+    }
     public Document(String name, String type) {
         this.name = name;
         this.type = type;

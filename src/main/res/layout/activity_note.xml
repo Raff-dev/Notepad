@@ -1,56 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/noteActivityLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
+    android:background="#fff"
     android:orientation="vertical"
     tools:context=".NoteActivity">
 
 
     <Button
         android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Delete" />
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:background="#33338888"
+        android:foreground="@drawable/ic_delete" />
 
     <Button
         android:id="@+id/saveNoteButton"
-        android:layout_width="60dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/creationwindow"
-        android:text="Save"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="9dp"
+        android:foreground="@drawable/ic_check"
+        android:background="@drawable/dark_background"
         android:textColor="#fff"
-        android:layout_marginLeft="30dp" />
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/documentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Document name"
+        android:layout_below="@+id/saveNoteButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@+id/saveNoteButton"
+        android:layout_toRightOf="@+id/saveNoteButton"
+        android:background="@drawable/dark_background"
         android:padding="10dp"
+        android:text="Document name"
         android:textColor="#fff"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/noteEditText"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:textColor="#fff"/>
+        android:layout_width="match_parent"
+        android:layout_height="602dp"
+        android:layout_below="@+id/documentName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@null"
+        android:foreground="@drawable/ic_addcircle"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:lineHeight="46dp"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="10dp"
+        android:scrollbars="vertical"
+        android:textAlignment="viewStart"
+        android:textColor="#fff"
+        android:textSize="24sp" />
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
 
 
 

@@ -1,54 +1,82 @@
 package com.example.notatnik;
 
-import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class TaskAdapter extends BaseAdapter {
+import java.util.ArrayList;
 
-    private Context mContext;
-    private List<Task> mTaskList;
-    private LayoutInflater mInflater;
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
+    private ArrayList<Task> taskArrayList;
 
-    public TaskAdapter(Context mContext, List<Task> mTaskList) {
-        this.mContext = mContext;
-        this.mTaskList = mTaskList;
-        mInflater = (LayoutInflater) this.mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public static class TaskViewHolder extends RecyclerView.ViewHolder {
+        TextView taskName;
+        CheckBox taskCheckBox;
+        MyDBHandler dbHandler;
+
+
+        public TaskViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            taskName = itemView.findViewById(R.id.taskName);
+            taskCheckBox = itemView.findViewById(R.id.taskCheckbox);
+            dbHandler = new MyDBHandler(itemView.getContext(), null, null, 1);
+        }
+
     }
 
+    public TaskAdapter(ArrayList<Task> taskArrayList) {
+        this.taskArrayList = taskArrayList;
+    }
+
+    @NonNull
+    @Override
+    public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_task, parent, false);
+        TaskViewHolder tvh = new TaskViewHolder(v);
+        return tvh;
+    }
 
     @Override
-    public int getCount() {
-        return mTaskList.size();
+    public void onBindViewHolder(@NonNull final TaskViewHolder holder, final int position) {
+        Task task = taskArrayList.get(position);
+        final int iddt = task.getDocumentId();
+        final int idt = task.getId();
+
+        holder.taskName.setText(task.getTaskName());
+        holder.taskCheckBox.setChecked(holder.dbHandler.getTaskCheckValue(iddt, idt));
+        if(holder.taskCheckBox.isChecked()){
+            holder.taskName.setPaintFlags(holder.taskName.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+        }else{
+            holder.taskName.setPaintFlags(holder.taskName.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+        }
+        holder.taskCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                holder.dbHandler.updateTaskChecked(iddt, idt, !taskArrayList.get(position).isChecked());
+                if(holder.taskCheckBox.isChecked()){
+                    holder.taskName.setPaintFlags(holder.taskName.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+                }else{
+                    holder.taskName.setPaintFlags(holder.taskName.getPaintFlags()& (~Paint.STRIKE_THRU_TEXT_FLAG));
+                }
+            }
+        });
+
+
+
     }
 
     @Override
-    public Object getItem(int position) {
-        return this.mTaskList.get(position);
+    public int getItemCount() {
+        return taskArrayList.size();
     }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View v = mInflater.inflate(R.layout.single_task, null);
-        TextView taskName = (TextView) v.findViewById(R.id.taskText);
-        CheckBox taskCheck = (CheckBox) v.findViewById(R.id.taskCheckbox);
-
-        taskName.setText(String.format("%s", mTaskList.get(position).getTaskText()));
-        taskCheck.setChecked(mTaskList.get(position).isChecked());
-
-        v.setTag(mTaskList.get(position).getId());
-        return v;
-    }
 }
-
