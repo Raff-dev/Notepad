@@ -5,7 +5,7 @@ Its me trying to learn Java and Andorid Studio
 * Create a note
 <a href="https://imgflip.com/gif/3elvvz"><img src="https://i.imgflip.com/3elvvz.gif" title="made at imgflip.com"
                                               href="https://imgflip.com/gif/3elvvz"><img src="https://i.imgflip.com/3elvvz.gif" title="made at imgflip.com"/>
-
+<a href="https://imgflip.com/gif/3elwd7"><img src="https://i.imgflip.com/3elwd7.gif" title="made at imgflip.com"/>
 </a>
 A document consists of:
    name  
