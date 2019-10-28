@@ -8,5 +8,6 @@ Its just me trying to learn some programing :D
 <a href="https://imgflip.com/gif/3elwd7"><img src="https://i.imgflip.com/3elwd7.gif"/></a>  
 ### Swiping left allows you to edit document's name.
 <a href="https://imgflip.com/gif/3elx4y"><img src="https://i.imgflip.com/3elx4y.gif"/></a>  
-### Swiping right lets you remove a document.  You can add back removed document, by clicking "undo"  
+### Swiping right lets you remove a document.  
+### You can add back removed document, by clicking "undo"  
 <a href="https://imgflip.com/gif/3elxcp"><img src="https://i.imgflip.com/3elxcp.gif"/></a>
