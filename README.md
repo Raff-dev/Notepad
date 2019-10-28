@@ -1,5 +1,5 @@
 # Notepad
-A simple notepad app, in which you can add notes/tasks that are stored in SQLite database.
+A simple notepad app, in which you can add notes/tasks that are stored in SQLite database.  
 Its just me trying to learn some programing :D
 
 ### You can create a note or a checklist. Delete a task by swiping one out.
