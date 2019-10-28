@@ -1,4 +1,4 @@
-# Notepad asd
+# Notepad
 Its me trying to learn Java and Andorid Studio
 
 ### You can create a note or a checklist. Delete a task by swiping one out.
