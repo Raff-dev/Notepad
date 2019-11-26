@@ -1,6 +1,6 @@
 # Notepad
 This is a simple notepad app, in which you can add notes/tasks, that are stored in SQL database.  
-Its just me trying to learn some programing :D
+Its just me trying to learn some android programing :D
 
 ### You can create a note...
 <a href="https://imgflip.com/gif/3elwxe"><img src="https://i.imgflip.com/3elwxe.gif"/></a>  
